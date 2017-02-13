@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+    <title></title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        new function (){
+            var _self = this;
+            _self.width = 750;//设置默认最大宽度
+            _self.fontSize = 100;//默认字体大小
+            _self.widthProportion = function(){var p = document.getElementsByTagName("html")[0].offsetWidth/_self.width;return p>1?1:p;};
+            _self.changePage = function(){
+                document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+            };
+            _self.changePage();
+            window.addEventListener("resize",function(){_self.changePage();},false);
+        };
+		
+		$(function(){
+			$(".in-rig").click(function(){
+				$("#syxz").css('display','block')
+				})
+			})
+			
+		$(function(){
+			$(".tk-btn").click(function(){
+				$('#syxz').css('display','none')
+				})
+			})
+		$(function(){
+			$('.time1').click(function(){
+				$('#time').css('display','block')
+				})
+			})
+		$(function(){
+			$('.bottom').click(function(){
+				$('#time').css('display','none')
+				})
+			})
+	$(function(){
+			var _box = $(".box");
+            var _selBtna = $(".inquire-add li");
+			var _selBtn1 = _box.find(".li1");
+			var _selList = _box.find(".sel_cont .sel_list");
+			var _contList = _selList.find(".list li");
+			var iNow = 0;
+			
+			$('.li1').click(function(){
+				$('.box').css('display','block');
+                $('.sel_cont').css('display','block');
+				$('.sel_list1').css('display','block');
+				})
+			$('.li2').click(function(){
+				$('.box').css('display','block');
+				$('.sel_list1').css('display','none');
+                $('.sel_cont').css('display','block');
+                $('.sel_list2').css('display','block');
+				})
+			$('.li3').click(function(){
+				$('.box').css('display','block');
+                $('.sel_cont').css('display','block');
+                $('.sel_list3').css('display','block');
+				$('.sel_list1').css('display','none');
+				$('.sel_list2').css('display','none');
+				})
+			$('.reg').click(function(){
+				$('.box').css('display','none')
+				})
+			
+           
+			_contList.on("touchend",function(){
+				_contList.removeClass("on");
+				$(this).addClass("on");
+				var txt = $(this).find("a").text();
+				_contList.parent().parent().find(".reg").on("touchend",function(){
+					_selList.css({"display":"none"});
+                    $(".sel_cont").css("display","none");
+                    $(".sel_cont_bg").css("display","none");
+					iNow = $(this).parent().index();
+					_selBtna.eq(iNow).text(txt);
+				});
+			})
+
+			var _year = _selList.find(".year li");
+			var _month = _selList.find(".month li");
+
+			_year.on("touchend",function(){
+				_year.removeClass("on");
+				$(this).addClass("on");
+			});
+			_month.on("touchend",function(){
+				_month.removeClass("on");
+				$(this).addClass("on");
+			});
+
+			var _timerBtn = _selList.eq(0).find(".reg");
+			_timerBtn.on("touchend",function(){
+				var yy = $(this).parent().find(".year .on span").text();
+				var mm = $(this).parent().find(".month .on").text();
+				iNow = $(this).parent().index();
+				if( yy == "不限"){
+					_selBtna.eq(iNow).text("不限");
+				}else if( mm == "不限"){
+					_selBtna.eq(iNow).text(yy+"年"+mm);
+				}else{
+					_selBtna.eq(iNow).text(yy+"年"+mm+"可用");
+				}
+				
+			});
+
+		});
+	
+		
+    </script>
+</head>
+<body>
+<div class="inquire-top"><h1>全部活动</h1></div>
+<div class="inquire-one">
+	<div class="in-sr">
+    	<input type="text" value="输入要搜索的景区名称" onfocus="if(value=='输入要搜索的景区名称') value='';" style="color:#888; font-size:0.24rem;"/>
+        <i></i>
+    </div>
+    <div class="in-cen">
+    	<img src="images/phone.png" /> 
+    </div>
+    <div class="in-rig">
+    	使用细则
+    </div>
+</div>
+<div id="syxz" style="display:none;">
+	<div class="syxz"></div>
+	<div class="xz">
+    	<h2>使用细则</h2>
+        <div class="nr">
+        	<h3 style="margin-top:0;">使用细则</h3>
+            <p>
+            	首先，你应该提前半个小时预约，然后你再说再去取票。首飘得先，你应该提前半是个小时预约，然后你再去取票。首先，你应该提前半个小时预约，然后你再去取票。
+            </p>
+            <h3>第二</h3>
+            <p>
+            	首先，你应该再说提前半个小时预约，然是后你再去取票。首先，你应取票该提前半个小取票。
+            </p>
+            <h3>第三</h3>
+            <p>
+            	首先，你应该提前半你去取票的时候英爱先个小时预约，然后首先，你应该提前半你去取票的时候英爱先个小时预约首先，你应该提前半你去取票的时候英爱先个小时预约首先，你应该提前半你去取票的时候英爱先个小时预约首先，你应该提前半你去取票的时候英爱先个小时预约首先，你应该提前半你去取票的时候英爱先个小时预约首先，你应该提前半你去取票的时候英爱先个小时预约首先，你应该提前半你去取票的时候英爱先个小时预约
+            </p>
+        </div>
+        <div class="tk-btn">
+        	<a href="#">我知道了</a>
+        </div>
+    </div>
+</div>
+<div class="box">
+	<div class="sel_cont_bg"></div>
+	<div class="sel_cont">
+		<div class="sel_list clear on sel_list1">
+			<ul class="year"> 
+				<li>今年(<span>2016</span>)</li>
+				<li class="on">今年(<span>2017</span>)</li>
+				<li><span>不限</span></li>
+			</ul>
+			<ul class="month">
+				<li class="on">不限</li>
+				<li>1月</li>
+				<li>2月</li>
+				<li>3月</li>
+				<li>4月</li>
+				<li>5月</li>
+				<li>6月</li>
+				<li>7月</li>
+				<li>8月</li>
+				<li>9月</li>
+				<li>10月</li>
+				<li>11月</li>
+				<li>12月</li>
+			</ul>
+			<div class="reg">确定</div>
+		</div>
+		<div class="sel_list sel_list2">
+			<ul class="list">
+				<li class="on"><a href="javascript:;">全国</a></li>
+				<li><a href="javascript:;">北京</a></li>
+				<li><a href="javascript:;">上海</a></li>
+				<li><a href="javascript:;">郑州</a></li>
+				<li><a href="javascript:;">洛阳</a></li>
+			</ul>
+			<div class="reg">确定</div>
+		</div>
+		<div class="sel_list sel_list3">
+			<ul class="list">
+				<li class="on"><a href="javascript:;">不限级别</a></li>
+				<li><a href="javascript:;">5A</a></li>
+				<li><a href="javascript:;">4A</a></li>
+				<li><a href="javascript:;">3A</a></li>
+			</ul>
+			<div class="reg">确定</div>
+		</div>
+	</div>
+</div>
+<div class="inquire-add">
+	<ul class="select clear">
+    	<li class="li1">2017年5月可用</li>
+        <li class="li2" style="background-position:80%;">全国</li>
+        <li class="li3" style="background-position:72%;">5A</li>
+    </ul>
+<!--<div id="time" style="display:none;">
+	<div class="time-bg"></div>
+    <div class="time">
+    	<ul class="left">
+        	<li>今年（2016）</li>
+            <li class="cur">明年（2017）</li>
+            <li>不限</li>
+        </ul>
+        <ul class="right">
+        	<li>不限</li>
+            <li>8月</li>
+            <li class="cur">9月</li>
+            <li>10月</li>
+            <li>11月</li>
+            <li>12月</li>
+        </ul>
+        <div class="bottom">确定</div>
+    </div>
+</div>-->
+</div>
+
+<div class="inquire-two" id="wrap">
+	<ul class="title">
+    	<li class="cur"><i>全部状态</i></li>
+        <li><i>未预约</i></li>
+        <li><i>待取票</i></li>
+        <li><i>已取票</i></li>
+    </ul>
+    <div class="li-js">
+        <ul class="li-list">
+        	 <li>
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>畅想悠游假期</i><b>畅想悠游假期</b></div>
+                    <div class="rignt-wz jp">
+                        <h2>方特儿童游乐场<span>5A</span></h2>
+                        <p class="ts">
+                            提前半小时预约；来方特嗨翻全场
+                        </p>
+                        <p class="dz">
+                            郑州
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt wyy">未预约</div>
+                 </div>
+             </li>
+             <li>
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>畅想悠游假期</i><b>畅想悠游假期</b></div>
+                    <div class="rignt-wz">
+                        <h2>方特儿童游乐场<span>5A</span></h2>
+                        <p class="ts">
+                            提前半小时预约；来方特嗨翻全场
+                        </p>
+                        <p class="dz">
+                            郑州
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt wyy">未预约</div>
+                 </div>
+             </li>
+             <li>
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>白景游</i><b>白景游</b></div>
+                    <div class="rignt-wz">
+                        <h2>昌黎黄金海岸滑沙中心<span>4A</span></h2>
+                        <p class="ts">
+                           提前半小时预约；碧海蓝天，日光浴
+                        </p>
+                        <p class="dz">
+                            郑州
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt qp">取票(8月30日)</div>
+                 </div>
+             </li>
+             <li>
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>畅想悠游假期</i><b>畅想悠游假期</b></div>
+                    <div class="rignt-wz">
+                        <h2>天坛<span>4A</span></h2>
+                        <p class="ts">
+                            当天可约；老北京皇城范儿
+                        </p>
+                        <p class="dz">
+                            北京
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt yqp">已取票</div>
+                 </div>
+             </li>
+              <li style="margin-bottom:0;">
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>畅想悠游假期</i><b>畅想悠游假期</b></div>
+                    <div class="rignt-wz">
+                        <h2>天坛<span>4A</span></h2>
+                        <p class="ts">
+                            当天可约；老北京皇城范儿
+                        </p>
+                        <p class="dz">
+                            北京
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt ygq">已过期</div>
+                 </div>
+             </li>
+        </ul>
+        <ul class="li-list" style="display:none;">
+             <li>
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>畅想悠游假期</i><b>畅想悠游假期</b></div>
+                    <div class="rignt-wz">
+                        <h2>方特儿童游乐场<span>5A</span></h2>
+                        <p class="ts">
+                            提前半小时预约；来方特嗨翻全场
+                        </p>
+                        <p class="dz">
+                            郑州
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt wyy">未预约</div>
+                 </div>
+             </li>
+        </ul>
+        <ul class="li-list" style="display:none;">
+             <li>
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>白景游</i><b>白景游</b></div>
+                    <div class="rignt-wz">
+                        <h2>昌黎黄金海岸滑沙中心<span>4A</span></h2>
+                        <p class="ts">
+                           提前半小时预约；碧海蓝天，日光浴
+                        </p>
+                        <p class="dz">
+                            郑州
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt qp">取票(8月30日)</div>
+                 </div>
+             </li>
+             <li style="margin-bottom:0;">
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>畅想悠游假期</i><b>畅想悠游假期</b></div>
+                    <div class="rignt-wz">
+                        <h2>天坛<span>4A</span></h2>
+                        <p class="ts">
+                            当天可约；老北京皇城范儿
+                        </p>
+                        <p class="dz">
+                            北京
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt yqp">已取票</div>
+                 </div>
+             </li>
+        </ul>
+        <ul class="li-list"  style="display:none;">
+             <li>
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>畅想悠游假期</i><b>畅想悠游假期</b></div>
+                    <div class="rignt-wz">
+                        <h2>方特儿童游乐场<span>5A</span></h2>
+                        <p class="ts">
+                            提前半小时预约；来方特嗨翻全场
+                        </p>
+                        <p class="dz">
+                            郑州
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt wyy">未预约</div>
+                 </div>
+             </li>
+             <li style="margin-bottom:0;">
+                <div class="li-top">
+                    <div class="left-img"><img src="images/img.png" /><i>畅想悠游假期</i><b>畅想悠游假期</b></div>
+                    <div class="rignt-wz">
+                        <h2>天坛<span>4A</span></h2>
+                        <p class="ts">
+                            当天可约；老北京皇城范儿
+                        </p>
+                        <p class="dz">
+                            北京
+                        </p>
+                    </div>
+                 </div>
+                 <div class="li-bot">
+                     <div class="yxq">2016-08-01至2016-08-31有效</div>
+                     <div class="zt yqp">已取票</div>
+                 </div>
+             </li>
+        </ul>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

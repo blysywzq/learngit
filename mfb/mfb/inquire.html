@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+    <title></title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script>
+        new function (){
+            var _self = this;
+            _self.width = 750;//设置默认最大宽度
+            _self.fontSize = 100;//默认字体大小
+            _self.widthProportion = function(){var p = document.getElementsByTagName("html")[0].offsetWidth/_self.width;return p>1?1:p;};
+            _self.changePage = function(){
+                document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+            };
+            _self.changePage();
+            window.addEventListener("resize",function(){_self.changePage();},false);
+        };
+    </script>
+     <style type="text/css">
+        .container{width:100%;height:100%;position:fixed;left:0;top:0;max-width:750px;}
+        @media screen and (min-width: 750px) {
+            .container{width: 750px;left: 50%;margin-left: -375px;}
+        }
+    </style>
+</head>
+<body>
+<div class="inquire-top">全部活动</div>
+<div class="inquire-one">
+	<div class="in-sr">
+    	<input type="text" value="输入要搜索的景区名称" onfocus="if(value=='输入要搜索的景区名称') value='';"/>
+    </div>
+    <div class="in-cen">
+    	<img src="images/phone.png" /> 
+    </div>
+    <div class="in-rig">
+    	使用细则
+    </div>
+</div>
+<div class="inquire-two">
+	
+</div>
+
+</body>
+</html>
